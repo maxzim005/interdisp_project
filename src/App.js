@@ -1,8 +1,10 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
+import ChooseCategory from './components/pages/ChooseCategory';
+import ListOfPoints from './components/pages/ListOfPoints';
 import MainPage from './components/pages/MainPage';
 import Navbar from './components/UI/Navbar/Navbar';
-import Button from './components/UI/Button';
+import Profile from './components/pages/Profile';
 import './index.css';
 
 function App() {
@@ -10,8 +12,12 @@ function App() {
 		<div className='app-wrapper'>
 			<Navbar />
 			<Routes>
-				<Route path='/mainpage' render={() => <MainPage />} />
-				
+				{/* <Route exact path='/' render={() => <MainPage />} />
+				<Route path='/choose_category' render={() => <ChooseCategory />} /> */}
+				<Route exact path='/main_page' element={<MainPage/>} />
+				<Route path='/choose_category' element={<ChooseCategory/>} />
+				<Route path='/list_of_points' element={<ListOfPoints/>} />
+				<Route path='/profile' element={<Profile/>} />
 			</Routes>
 		</div>
 	);

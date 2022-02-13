@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Profile = () => {
+const Switcher = () => {
     return (
         <div>
-            Hello, username!
+            
         </div>
     );
 };
 
-export default Profile;
+export default Switcher;
