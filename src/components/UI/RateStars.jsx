@@ -1,12 +1,12 @@
 import React from 'react';
-import './RateStars.css'
+import s from './RateStars.module.css'
 
 const RateStars = () => {
     return (
-    <div className="rating-result">
-        <span className="active"></span>	
-        <span className="active"></span>    
-        <span className="active"></span>  
+    <div className={s.rating_result}>
+        <span className={s.active}></span>	
+        <span className={s.active}></span>    
+        <span className={s.active}></span>  
         <span></span>    
         <span></span>
     </div>

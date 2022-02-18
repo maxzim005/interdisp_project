@@ -1,8 +1,8 @@
-.rating-result {
+.rating_result {
 	width: 265px;
 	margin: 0 auto;
 }
-.rating-result span {
+.rating_result span {
 	padding: 0;
 	font-size: 32px;
 	margin: 0 3px;
@@ -10,10 +10,10 @@
 	color: lightgrey;
 	text-shadow: 1px 1px #bbb;
 }
-.rating-result > span:before {
+.rating_result > span:before {
 	content: '★';
 }
-.rating-result > span.active {
+.rating_result > span.active {
 	color: gold;
 	text-shadow: 1px 1px #c60;
 }

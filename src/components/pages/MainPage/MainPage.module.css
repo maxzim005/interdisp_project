@@ -1,0 +1,72 @@
+.wrapper {
+    position: absolute;
+    width: 1440px;
+    height: 800px;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(225deg, rgba(249, 72, 250, 0.4) 0%, rgba(251, 218, 97, 0.4) 100%);
+    z-index: -2;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-top: 247px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 59px;
+}
+
+h3 {
+    display: block;
+    width: 534px;
+    height: 81px;
+    margin: 0 auto;
+    margin-top: 16px;
+    text-align: center;
+    font-family: Tahoma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+button {
+    width: 247px;
+    height: 75px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 32px;
+    border: 0px;
+    border-radius: 30px;
+    background: linear-gradient(180deg, #FBDA61 0%, rgba(173, 59, 173, 0.81) 63.33%);
+    font-family: Tahoma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 41px;
+    color: #FFFFFF;
+}
+
+.fig_1 {
+    position: absolute;
+    width: 484.5px;
+    height: 394px;
+    z-index: -1;
+}
+
+.fig_2 {
+    position: absolute;
+    width: 316px;
+    height: 433px;
+    left: 78%;
+    top: -15%;
+    z-index: -1;
+}
+
+.waves {
+    position: absolute;
+    top: 52%;
+}

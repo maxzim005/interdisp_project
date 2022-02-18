@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import ProfilePic from '../../../img/Profile.svg'
+import s from './Navbar.module.css'
 
 const Navbar = () => {
     return (
-        <div className='navbar'>
-            <NavLink className='link' to='/main_page'>Main page</NavLink>
-            <NavLink className='link' to='/choose_category'>Choose category</NavLink>
-            <NavLink className='link' to='/list_of_points'>List of points</NavLink>
-            <NavLink className='link' to='/profile'>Profile</NavLink>
+        <div className={s.navbar}>
+            <NavLink className={s.link + ' offset-5 col-1'} to='/main_page'>WA</NavLink>
+            <NavLink className={s.link + ' offset-4 col-1'} to='/profile'><img src={ProfilePic} alt="" /></NavLink>
         </div>
     );
 };

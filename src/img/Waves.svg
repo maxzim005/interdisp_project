@@ -1,0 +1,14 @@
+<svg width="1440" height="383" viewBox="0 0 1440 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 127L31 164.3C61 202 121 276 181 303C241 330 301 308 361 276.3C421 244 481 202 541 201.7C601 202 661 244 721 239C781 234 841 180 901 164.3C961 148 1021 170 1081 169.7C1141 170 1201 148 1261 169.7C1321 191 1381 255 1411 287L1441 319V383H1411C1381 383 1321 383 1261 383C1201 383 1141 383 1081 383C1021 383 961 383 901 383C841 383 781 383 721 383C661 383 601 383 541 383C481 383 421 383 361 383C301 383 241 383 181 383C121 383 61 383 31 383H1V127Z" fill="url(#paint0_linear_119_6)"/>
+<path d="M332.5 228C186.5 157 264 229.5 -1 299V383H1440.5V0C1370.33 80.3333 1213.1 252.6 1145.5 299C1061 357 975.5 244.5 884 196.5C792.5 148.5 705.5 251 606.5 299C507.5 347 478.5 299 332.5 228Z" fill="url(#paint1_linear_119_6)"/>
+<defs>
+<linearGradient id="paint0_linear_119_6" x1="721" y1="195" x2="721" y2="383" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FBDA61"/>
+<stop offset="1" stop-color="#F948FA"/>
+</linearGradient>
+<linearGradient id="paint1_linear_119_6" x1="642.5" y1="383" x2="643" y2="253.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#BC59B5"/>
+<stop offset="1" stop-color="#F9D564"/>
+</linearGradient>
+</defs>
+</svg>

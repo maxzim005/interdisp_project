@@ -1,0 +1,17 @@
+.navbar {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.navbar .link {
+    text-decoration: none;
+    color: #AD3BAD;
+    font-family: Tahoma;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 66px;
+}
