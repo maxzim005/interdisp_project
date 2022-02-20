@@ -1,16 +1,23 @@
+/* body{
+    min-height: 800px;
+    background: linear-gradient(225deg, rgba(249, 72, 250, 0.4) 0%, rgba(251, 218, 97, 0.4) 100%);
+    overflow-x: hidden;
+} */
 .wrapper {
     position: absolute;
-    width: 1440px;
-    height: 800px;
+    width: 100vw;
+    height: 100vh;
     left: 0px;
     top: 0px;
     background: linear-gradient(225deg, rgba(249, 72, 250, 0.4) 0%, rgba(251, 218, 97, 0.4) 100%);
     z-index: -2;
     overflow-x: hidden;
-}
+} 
 
 h1 {
-    margin-top: 247px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 265px;
     text-align: center;
     font-family: 'Roboto Condensed', sans-serif;
     font-style: normal;
@@ -55,6 +62,7 @@ button {
     width: 484.5px;
     height: 394px;
     z-index: -1;
+    top: 0%;
 }
 
 .fig_2 {
@@ -68,5 +76,13 @@ button {
 
 .waves {
     position: absolute;
-    top: 52%;
+    z-index: -1;
+    /* top: 52%; */
+    bottom: 0px;
+    width: 100%;
+}
+
+.link {
+    z-index: 10;
+    text-decoration: none;
 }

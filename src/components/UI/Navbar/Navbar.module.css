@@ -1,9 +1,12 @@
 .navbar {
     height: 100px;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    position: absolute;
+    top: 0;
 }
 
 .navbar .link {

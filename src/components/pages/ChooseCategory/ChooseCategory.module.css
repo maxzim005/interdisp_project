@@ -1,0 +1,32 @@
+.wrapper {
+    background: linear-gradient(35.83deg, rgba(124, 250, 228, 0.9) 0%, rgba(251, 226, 98, 0.9) 89.84%);
+    height: 100vh;
+}
+
+h2 {
+    padding-top: 185px;
+    text-align: center;
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 47px;
+}
+
+.choose_city {
+    font-family: Tahoma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+}
+
+.choose_category {
+    font-family: Tahoma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+}

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-import ChooseCategory from './components/pages/ChooseCategory';
-import ListOfPoints from './components/pages/ListOfPoints';
+import ChooseCategory from './components/pages/ChooseCategory/ChooseCategory';
+import ListOfPoints from './components/pages/ListOfPoints/ListOfPoints';
+import MapOfPoints from './components/pages/MapOfPoints/MapOfPoints';
 import MainPage from './components/pages/MainPage/MainPage';
 import Navbar from './components/UI/Navbar/Navbar';
 import Profile from './components/pages/Profile';
@@ -17,6 +18,7 @@ function App() {
 				<Route exact path='/main_page' element={<MainPage/>} />
 				<Route path='/choose_category' element={<ChooseCategory/>} />
 				<Route path='/list_of_points' element={<ListOfPoints/>} />
+				<Route path='/map_of_points' element={<MapOfPoints/>} />
 				<Route path='/profile' element={<Profile/>} />
 			</Routes>
 		</div>
