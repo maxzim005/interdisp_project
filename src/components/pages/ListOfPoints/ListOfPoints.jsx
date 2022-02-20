@@ -5,7 +5,12 @@ const ListOfPoints = () => {
     return (
         <div className={s.wrapper}>
             <div className={s.current_city}>Current city: Tomsk</div>
-            <div className={s.switcher}>SWITCHER</div>
+            <div className={s.switcher}>
+                <label className={s.switch}>
+                    <input type='checkbox'></input>
+                        <span className={s.slider}></span>
+                </label>
+            </div>
             <div className={s.current_category}>Current category</div>
             <div className={s.sort_by}>sort by: </div>
             <div>LIST OF POINTS</div>

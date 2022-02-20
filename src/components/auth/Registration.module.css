@@ -1,0 +1,16 @@
+.wrapper {
+    background: linear-gradient(108.28deg, #7CF7E7 6.82%, #F550F9 96.73%);
+    min-height: 100vh;
+}
+
+.text {
+    position: relative;
+    top: 158px;
+    text-align: center;
+    left: -15px;
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 41px;
+}

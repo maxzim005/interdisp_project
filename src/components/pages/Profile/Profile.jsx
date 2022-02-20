@@ -1,9 +1,10 @@
 import React from 'react';
-import RateStars from '../UI/RateStars';
+import RateStars from '../../UI/RateStars';
+import s from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <div>
+        <div className={s.wrapper}>
             Hello, username!
             <RateStars />
             <br />
