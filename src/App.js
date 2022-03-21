@@ -18,7 +18,7 @@ function App() {
 			<Routes>
 				{/* <Route exact path='/' render={() => <MainPage />} />
 				<Route path='/choose_category' render={() => <ChooseCategory />} /> */}
-				<Route exact path='/main_page' element={<MainPage/>} />
+				<Route exact path='/' element={<MainPage/>} />
 				<Route path='/choose_category' element={<ChooseCategory/>} />
 				<Route path='/list_of_points' element={<ListOfPoints/>} />
 				<Route path='/map_of_points' element={<MapOfPoints/>} />
