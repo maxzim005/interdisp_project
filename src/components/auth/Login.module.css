@@ -14,3 +14,27 @@
     font-size: 35px;
     line-height: 41px;
 }
+.text_reg{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 270px;
+}
+
+.btn_reg{
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin-top: 10px;
+}

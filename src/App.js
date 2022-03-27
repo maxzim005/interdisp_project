@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import ChooseCategory from './components/pages/ChooseCategory/ChooseCategory';
 import ListOfPoints from './components/pages/ListOfPoints/ListOfPoints';
@@ -12,6 +12,12 @@ import Login from './components/auth/Login';
 import Registration from './components/auth/Registration';
 
 function App() {
+
+	const [token, setToken] = useState();
+	if(!token) {
+		return <Login setToken={setToken} />
+	  }
+
 	return (
 		<div className='app-wrapper'>
 			<Navbar />
