@@ -13,17 +13,19 @@ import Registration from './components/auth/Registration';
 
 function App() {
 
-	const [token, setToken] = useState();
-	if(!token) {
-		return <Login setToken={setToken} />
+	const [token, setToken] = useState(1);
+	const [unreg, setUnreg] = useState(false);
+	if(!token && !unreg) {
+		return <Login setToken={setToken} setUnreg={setUnreg} />	
 	  }
+	if(!token && unreg) {
+		return <Registration setUnreg={setUnreg}/>
+	}
 
 	return (
 		<div className='app-wrapper'>
 			<Navbar />
 			<Routes>
-				{/* <Route exact path='/' render={() => <MainPage />} />
-				<Route path='/choose_category' render={() => <ChooseCategory />} /> */}
 				<Route exact path='/' element={<MainPage/>} />
 				<Route path='/choose_category' element={<ChooseCategory/>} />
 				<Route path='/list_of_points' element={<ListOfPoints/>} />

@@ -20,6 +20,11 @@ h2 {
     font-size: 22px;
     line-height: 27px;
     text-align: center;
+    margin-bottom: 30px;
+}
+
+.city_wrapper{
+    
 }
 
 .choose_category {
@@ -29,4 +34,10 @@ h2 {
     font-size: 22px;
     line-height: 27px;
     text-align: center;
+    margin-bottom: 30px;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
 }

@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Registration.module.css'
 
-const Registration = () => {
+const Registration = ({setUnreg}) => {
     
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
@@ -36,6 +36,11 @@ const Registration = () => {
         });
     }
 
+    const handleClick = () => {
+        setUnreg(false);
+        console.log('REG')
+    }
+
     return (
         <div className={s.wrapper}>
             <div className={s.text}>Registration</div>
@@ -62,7 +67,7 @@ const Registration = () => {
                     </div>
                 </form>
                 <div className={s.text_reg}>Already have an account?</div>
-                <NavLink className={s.link + ' offset-5 col-1'} to='/login'>Click here</NavLink>
+                <button className={s.redirect_to_log} onClick={handleClick}>Click here</button>
             </div>
         </div>
     );

@@ -3,7 +3,8 @@ import s from './Login.module.css'
 import PropTypes from 'prop-types';
 import Registration from './Registration'
 import { NavLink} from 'react-router-dom';
-const Login = ({ setToken }) => {
+
+const Login = ({ setToken, setUnreg }) => {
 
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
@@ -29,8 +30,10 @@ const Login = ({ setToken }) => {
         setToken(token);
         console.log(token.token);
     }
-
-
+    const handleClick = () => {
+        setUnreg(true);
+        console.log('UNREG')
+    }
     return (
         <div className={s.wrapper}>
             <div className={s.text}>Login</div>
@@ -49,7 +52,7 @@ const Login = ({ setToken }) => {
                     </div>
                 </form>
                 <div className={s.text_reg}>Don't have an account?</div>
-                <NavLink className={s.link + ' offset-5 col-1'} to='/registration'>Click here</NavLink>
+                <button className={s.redirect_to_reg} onClick={handleClick}>Click here</button>  
             </div>
         </div>
     );
