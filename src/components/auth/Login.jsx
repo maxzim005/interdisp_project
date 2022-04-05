@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import s from './Login.module.css'
 import PropTypes from 'prop-types';
 import Registration from './Registration'
-import { NavLink} from 'react-router-dom';
+
 
 const Login = ({ setToken, setUnreg }) => {
 
@@ -29,6 +29,7 @@ const Login = ({ setToken, setUnreg }) => {
         });
         setToken(token);
         console.log(token.token);
+        localStorage.setItem('authToken', token.token)
     }
     const handleClick = () => {
         setUnreg(true);
@@ -38,7 +39,7 @@ const Login = ({ setToken, setUnreg }) => {
         <div className={s.wrapper}>
             <div className={s.text}>Login</div>
             <div className={s.login_wrapper}>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={s.form_style}>
                     <label>
                         <p>Username</p>
                         <input type="text" onChange={e => setEmail(e.target.value)} />

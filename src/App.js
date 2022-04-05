@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import ChooseCategory from './components/pages/ChooseCategory/ChooseCategory';
 import ListOfPoints from './components/pages/ListOfPoints/ListOfPoints';
@@ -13,13 +13,14 @@ import Registration from './components/auth/Registration';
 
 function App() {
 
-	const [token, setToken] = useState(1);
+	const [token, setToken] = useState();
 	const [unreg, setUnreg] = useState(false);
-	if(!token && !unreg) {
-		return <Login setToken={setToken} setUnreg={setUnreg} />	
+
+	if(!(localStorage.length > 0) && !unreg) {
+		return (<div><Navbar /> <Login setToken={setToken} setUnreg={setUnreg} /></div>)	
 	  }
-	if(!token && unreg) {
-		return <Registration setUnreg={setUnreg}/>
+	if(!(localStorage.length > 0) && unreg) {
+		return (<div><Navbar /> <Registration setUnreg={setUnreg}/></div>)
 	}
 
 	return (

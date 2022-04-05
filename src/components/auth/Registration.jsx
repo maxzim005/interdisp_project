@@ -45,7 +45,7 @@ const Registration = ({setUnreg}) => {
         <div className={s.wrapper}>
             <div className={s.text}>Registration</div>
             <div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={s.form_style}>
                     <label>
                         <p>Email</p>
                         <input type="text" onChange={e => setEmail(e.target.value)}/>
