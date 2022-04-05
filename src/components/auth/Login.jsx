@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import s from './Login.module.css'
 import PropTypes from 'prop-types';
 import Registration from './Registration'
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = ({ setToken, setUnreg }) => {
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
@@ -33,7 +36,7 @@ const Login = ({ setToken, setUnreg }) => {
     }
     const handleClick = () => {
         setUnreg(true);
-        console.log('UNREG')
+        navigate('/registration');
     }
     return (
         <div className={s.wrapper}>

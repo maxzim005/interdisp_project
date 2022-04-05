@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import s from './Registration.module.css'
 
 const Registration = ({setUnreg}) => {
+
+    const navigate = useNavigate();
     
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
@@ -38,7 +40,7 @@ const Registration = ({setUnreg}) => {
 
     const handleClick = () => {
         setUnreg(false);
-        console.log('REG')
+        navigate('/login');
     }
 
     return (
