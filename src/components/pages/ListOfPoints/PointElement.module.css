@@ -30,3 +30,9 @@
     flex-wrap: wrap;
     margin: 0;
   }
+
+  .btn {
+    width: 115px;
+    height: 55px;
+    font-size: 15px;
+  }

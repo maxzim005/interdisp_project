@@ -5,7 +5,7 @@ import Switch from '@mui/material/Switch';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const ListOfPoints = ({getPointId}) => {
+const ListOfPoints = ({getPointId, currentCategory}) => {
 
     const navigate = useNavigate();
     const [checked, setChecked] = useState(false);
@@ -15,14 +15,19 @@ const ListOfPoints = ({getPointId}) => {
         fetchAllPoints()
     }, [])
 
+
     async function fetchAllPoints() {
         try {
             const response = await axios.get("https://wasite.herokuapp.com/api/points/", {
                 headers: {
                     Authorization: `Token ${localStorage.getItem('authToken')}`
-                }
+                },
+                params: {
+                    tagName: currentCategory.tagName,
+                },
             });
             setPoints(response.data);
+            console.log(currentCategory);
         } catch (error) {
             if (error.response) {
                 console.log(error.response)
@@ -33,6 +38,10 @@ const ListOfPoints = ({getPointId}) => {
     const handleChange = (e) => {
         setChecked(e.target.checked);
         navigate('/map_of_points');
+    };
+
+    const handleClick = (e) => {
+        navigate('/add_point');
     };
 
     // const mass = ['ZEN', 'MISHKI', 'TEST1', 'TEST2', 'ZEN', 'MISHKI', 'TEST1', 'TEST2', 'ZEN', 'MISHKI', 'TEST1', 'TEST2', 'ZEN', 'MISHKI', 'TEST1', 'TEST2',]
@@ -46,7 +55,7 @@ const ListOfPoints = ({getPointId}) => {
                     onChange={handleChange}
                     inputProps={{ 'aria-label': 'controlled' }}
                 />
-
+                <button className={s.btn} onClick={handleClick}>Add your point!</button>
                 <div className={s.current_category}>Current category</div>
                 <div className={s.sort_by}>sort by: </div>
                 <div>LIST OF POINTS</div>

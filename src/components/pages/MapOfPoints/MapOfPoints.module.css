@@ -57,3 +57,9 @@
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
+
+  .btn {
+    width: 115px;
+    height: 55px;
+    font-size: 15px;
+  }

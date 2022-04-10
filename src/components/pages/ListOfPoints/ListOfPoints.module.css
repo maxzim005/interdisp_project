@@ -14,4 +14,8 @@
   flex-wrap: wrap;
   flex-direction: row;
 }
-
+.btn {
+   width: 115px;
+   height: 55px;
+   font-size: 15px;
+ }

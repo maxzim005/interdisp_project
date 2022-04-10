@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Login.module.css'
 import PropTypes from 'prop-types';
 import Registration from './Registration'
@@ -12,6 +12,9 @@ const Login = ({ setToken, setUnreg }) => {
     const [username, setUsername] = useState();
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
+
+    useEffect(() => {
+    }, [loginUser])
 
     async function loginUser(credentials) {
         return fetch("https://wasite.herokuapp.com/auth/token/login/", {
@@ -38,6 +41,7 @@ const Login = ({ setToken, setUnreg }) => {
         setUnreg(true);
         navigate('/registration');
     }
+
     return (
         <div className={s.wrapper}>
             <div className={s.text}>Login</div>

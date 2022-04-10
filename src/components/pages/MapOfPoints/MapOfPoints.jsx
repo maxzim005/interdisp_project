@@ -7,7 +7,7 @@ import axios from 'axios';
 import PlacemarkView from './PlacemarkView';
 
 
-const MapOfPoints = ({getPointId}) => {
+const MapOfPoints = ({getPointId, currentCategory}) => {
     const navigate = useNavigate();
     const [checked, setChecked] = useState(true);
     const [points, setPoints] = useState([]);
@@ -21,7 +21,10 @@ const MapOfPoints = ({getPointId}) => {
             const response = await axios.get("https://wasite.herokuapp.com/api/points/", {
                 headers: {
                     Authorization: `Token ${localStorage.getItem('authToken')}`
-                }
+                },
+                params: {
+                    tagName: currentCategory.tagName,
+                },
             });
             console.log(response);
             console.log(response.data);
@@ -39,6 +42,10 @@ const MapOfPoints = ({getPointId}) => {
         navigate('/list_of_points');
     };
     
+    const handleClick = (e) => {
+        navigate('/add_point');
+    };
+
     return (
         <div className={s.wrapper}>
             <div className={s.current_city}>Current city: Tomsk</div>
@@ -48,6 +55,7 @@ const MapOfPoints = ({getPointId}) => {
                 inputProps={{ 'aria-label': 'controlled' }}
                 color="warning"
             />
+            <button className={s.btn} onClick={handleClick}>Add your point!</button>
             <div className={s.current_category}>Current category</div>
             <div className={s.chosen_point}>Point</div>
             <div className={s.comments}>Comments:</div>

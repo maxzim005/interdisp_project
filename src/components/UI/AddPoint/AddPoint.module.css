@@ -1,0 +1,52 @@
+.wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(47.61deg, #7EF9E2 5.37%, #FBE572 83.96%);
+    z-index: -2;
+    overflow-x: hidden;
+} 
+.text {
+    padding-top: 150px;
+    /* position: relative; */
+    /* top: 50px; */
+    text-align: center;
+    /* left: -15px; */
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 41px;
+}
+.text_reg{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
+.form_style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.btn_reg{
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.redirect_to_reg {
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+}

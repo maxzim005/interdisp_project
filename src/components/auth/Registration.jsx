@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import s from './Registration.module.css'
 
@@ -10,6 +10,9 @@ const Registration = ({setUnreg}) => {
     const [email, setEmail] = useState();
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
+
+    useEffect(() => {
+    }, [regUser])
 
     async function regUser() {
         return axios.post('https://wasite.herokuapp.com/api/users/', {
@@ -32,6 +35,7 @@ const Registration = ({setUnreg}) => {
             password,
             login,
         });
+
     }
 
     const handleClick = () => {
