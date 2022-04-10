@@ -15,6 +15,11 @@ function App() {
 
 	const [token, setToken] = useState();
 	const [unreg, setUnreg] = useState(false);
+	const [pointId, setPointId] = useState();
+
+	const getPointId = (pointIdV) => {
+		setPointId(pointIdV);
+	}
 
 	if(!(localStorage.length > 0) && !unreg) {
 		return (<div><Navbar /> <Login setToken={setToken} setUnreg={setUnreg} /></div>)	
@@ -29,10 +34,10 @@ function App() {
 			<Routes>
 				<Route exact path='/' element={<MainPage/>} />
 				<Route path='/choose_category' element={<ChooseCategory/>} />
-				<Route path='/list_of_points' element={<ListOfPoints/>} />
-				<Route path='/map_of_points' element={<MapOfPoints/>} />
-				<Route path='/point' element={<Point/>} />
-				<Route path='/profile' element={<Profile/>} />
+				<Route path='/list_of_points' element={<ListOfPoints getPointId={getPointId}/>} />
+				<Route path='/map_of_points' element={<MapOfPoints getPointId={getPointId}/>} />
+				<Route path='/point' element={<Point pointId={pointId} />} />
+				<Route path='/profile' element={<Profile />} />
 				<Route path='/login' element={<Login/>} />
 				<Route path='/registration' element={<Registration/>} />
 			</Routes>

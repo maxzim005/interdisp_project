@@ -10,11 +10,11 @@ const Login = ({ setToken, setUnreg }) => {
     const navigate = useNavigate();
 
     const [username, setUsername] = useState();
-    const [email, setEmail] = useState();
+    const [login, setLogin] = useState();
     const [password, setPassword] = useState();
 
     async function loginUser(credentials) {
-        return fetch('https://nestjs-boilerplate-test.herokuapp.com/api/v1/auth/email/login', {
+        return fetch("https://wasite.herokuapp.com/auth/token/login/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,12 +27,12 @@ const Login = ({ setToken, setUnreg }) => {
     const handleSubmit = async e => {
         e.preventDefault();
         const token = await loginUser({
-            email,
+            login,
             password
         });
-        setToken(token);
-        console.log(token.token);
-        localStorage.setItem('authToken', token.token)
+        setToken(token.auth_token);
+        console.log(token.auth_token);
+        localStorage.setItem('authToken', token.auth_token)
     }
     const handleClick = () => {
         setUnreg(true);
@@ -45,7 +45,7 @@ const Login = ({ setToken, setUnreg }) => {
                 <form onSubmit={handleSubmit} className={s.form_style}>
                     <label>
                         <p>Username</p>
-                        <input type="text" onChange={e => setEmail(e.target.value)} />
+                        <input type="text" onChange={e => setLogin(e.target.value)} />
                     </label>
                     <label>
                         <p>Password</p>

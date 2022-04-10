@@ -7,18 +7,15 @@ const Registration = ({setUnreg}) => {
 
     const navigate = useNavigate();
     
-    const [username, setUsername] = useState();
     const [email, setEmail] = useState();
+    const [login, setLogin] = useState();
     const [password, setPassword] = useState();
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
 
     async function regUser() {
-        return axios.post('https://nestjs-boilerplate-test.herokuapp.com/api/v1/auth/email/register', {
+        return axios.post('https://wasite.herokuapp.com/api/users/', {
         email,
         password,
-        firstName,
-        lastName,
+        login,
       })
       .then(function (response) {
         console.log(response);
@@ -33,8 +30,7 @@ const Registration = ({setUnreg}) => {
         const token = await regUser({
             email,
             password,
-            firstName,
-            lastName,
+            login,
         });
     }
 
@@ -53,17 +49,14 @@ const Registration = ({setUnreg}) => {
                         <input type="text" onChange={e => setEmail(e.target.value)}/>
                     </label>
                     <label>
+                        <p>Login</p>
+                        <input type="text" onChange={e => setLogin(e.target.value)}/>
+                    </label>
+                    <label>
                         <p>Password</p>
                         <input type="password" onChange={e => setPassword(e.target.value)}/>
                     </label>
-                    <label>
-                        <p>First name</p>
-                        <input type="text" onChange={e => setFirstName(e.target.value)}/>
-                    </label>
-                    <label>
-                        <p>Last name</p>
-                        <input type="text" onChange={e => setLastName(e.target.value)}/>
-                    </label>
+                    
                     <div>
                         <button type="submit">Submit</button>
                     </div>
