@@ -4,12 +4,14 @@ import PointElement from './PointElement';
 import Switch from '@mui/material/Switch';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { TextField } from '@mui/material';
 
-const ListOfPoints = ({getPointId, currentCategory}) => {
+const ListOfPoints = ({ getPointId, currentCategory }) => {
 
     const navigate = useNavigate();
     const [checked, setChecked] = useState(false);
     const [points, setPoints] = useState([]);
+    const [value, setValue] = useState('');
 
     useEffect(() => {
         fetchAllPoints()
@@ -35,6 +37,25 @@ const ListOfPoints = ({getPointId, currentCategory}) => {
         }
     }
 
+    async function fetchSearch() {
+        try {
+            const response = await axios.get("https://wasite.herokuapp.com/api/points/search_points/", {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem('authToken')}`
+                },
+                params: {
+                    q: value,
+                },
+            });
+            setPoints(response.data);
+            console.log(response.data);
+        } catch (error) {
+            if (error.response) {
+                console.log(error.response)
+            }
+        }
+    }
+
     const handleChange = (e) => {
         setChecked(e.target.checked);
         navigate('/map_of_points');
@@ -44,11 +65,23 @@ const ListOfPoints = ({getPointId, currentCategory}) => {
         navigate('/add_point');
     };
 
+    const handleSearch = async e => {
+        // e.preventDefault();
+        const token = await fetchSearch({
+            value,
+        });
+    }
+
     // const mass = ['ZEN', 'MISHKI', 'TEST1', 'TEST2', 'ZEN', 'MISHKI', 'TEST1', 'TEST2', 'ZEN', 'MISHKI', 'TEST1', 'TEST2', 'ZEN', 'MISHKI', 'TEST1', 'TEST2',]
 
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
+
+                <TextField id="outlined-basic" value={value} label="Search" variant="standard" onChange={e =>
+                    setValue(e.target.value)} />
+                <button onClick={handleSearch} >Search</button>
+
                 <div className={s.current_city}>Current city: Tomsk</div>
                 <Switch
                     checked={checked}

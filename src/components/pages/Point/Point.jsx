@@ -22,7 +22,7 @@ const Point = ({pointId}) => {
                     Authorization: `Token ${localStorage.getItem('authToken')}`
                 }
             });
-            console.log(response);
+            console.log(response.data);
             setPointData(response.data);
         } catch (error) {
             if (error.response) {

@@ -69,7 +69,6 @@ const Profile = ({ getPointId }) => {
                 }
             });
             setActivePoints(response.data);
-            console.log(response.data);
         } catch (error) {
             if (error.response) {
                 console.log(error.response)
@@ -85,7 +84,6 @@ const Profile = ({ getPointId }) => {
                 }
             });
             setInactivePoints(response.data);
-            console.log(response.data);
         } catch (error) {
             if (error.response) {
                 console.log(error.response)
