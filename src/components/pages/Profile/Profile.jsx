@@ -114,31 +114,50 @@ const Profile = ({ getPointId }) => {
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
-                <div className={s.username}>Hi, {username}!</div>
+                <h4>{username}</h4>
+                <img className={s.user_icon} src="https://www.meme-arsenal.com/memes/b877babd9c07f94b952c7f152c4e264e.jpg" alt="" />
             </div>
-            <div>Current city: {userCity}</div>
-            <Typography component="legend">Current rating</Typography>
-            <Rating
-                name="simple-controlled"
-                value={rating}
-                onChange={(e, newValue) => {
-                    setValue(newValue);
-                }}
-            />
-            <div className={s.text}>Active points</div>
+            
+            <div className={s.current_city}>
+                <h5>Текущий город: {(userCity) ? userCity : 'Томск'}</h5> 
+            </div>
+            <div className={s.rating_wrapper}>
+                <div>
+                    <Typography component="legend"><h5>Текущий рейтинг:</h5></Typography>
+                </div>
+                <div>
+                    <Rating
+                        name="simple-controlled"
+                        // value={rating}
+                        value={value}
+                        defaultValue={3}
+                        onChange={(e, newValue) => {
+                            setValue(newValue);
+                        }}
+                    />
+
+                </div>
+               
+            </div>
+       
+            <div className={s.text}>
+                <h5>Текущие мероприятия:</h5>
+            </div>
             <div className={s.content_wrapper}>
                 {
                     activePoints.map(point => <PointElement getPointId={getPointId} point={point} />)
                 }
             </div>
             
-            <div className={s.text}>Inactive points</div>
+            <div className={s.text}>
+                <h5>Прошедшие мероприятия:</h5>
+            </div>
             <div className={s.content_wrapper}>
             {
                 inactivePoints.map(point => <PointElement getPointId={getPointId} point={point} />)
             }
             </div>
-            <button className={s.btn} onClick={handleClick}>Log out</button>
+            <button className={s.btn} onClick={handleClick}>Выйти</button>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 .org_icon{
-    width: 100px;
-    border-radius: 30px;        
+    width: 125px;
+    border-radius: 30px;    
+    margin-bottom: 10px;    
   }
   .elem_text {
     font-family: Tahoma;
@@ -16,8 +17,12 @@
     color: black;
   }
   .element{
-    width: 170px;
-    height: 170px;
+    background: linear-gradient(108.28deg, #50afa3 6.82%, #a536a8 96.73%);
+    margin: 20px;
+    padding: 15px;
+    border-radius: 25px;
+    width: 200px;
+    height: max-content;
     display: flex;
     align-items: center;
     flex-direction: column;

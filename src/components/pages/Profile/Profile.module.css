@@ -1,17 +1,17 @@
 .wrapper {
     background: linear-gradient(108.28deg, #7CF7E7 6.82%, #F550F9 96.73%);
     min-height: 100vh;
+    padding-bottom: 15px;
 }
 
 .container {
-    padding-top: 150px;
+    padding-top: 130px;
 }
 
 .btn {
     width: 115px;
     height: 55px;
     font-size: 15px;
-    
   }
 
   .content_wrapper {
@@ -24,4 +24,60 @@
 
   .text {
       text-align: center;
+      margin-top: 60px;
   }
+
+
+h5 {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    color: #000000;
+}
+
+.user_icon{
+    display: block;
+    margin: 15px auto 10px auto;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.container h4 {
+    text-align: center;
+}
+
+.current_city {
+    text-align: center;
+}
+.rating_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rating {
+    display: flex;
+    justify-content: center;
+}
+
+
+.wrap {
+    margin-left: 25%;
+    margin-top: 50px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.my_comment_text {
+    margin-top: 15px;
+    display: block;
+    width: 962px;
+    height: 94px;
+    border: none;
+    background: #FFFFFF;
+    border-radius: 21px;
+    padding: 5px;
+}
