@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-
 import s from './AddPoint.module.css';
 import axios from 'axios';
+import InteractiveMap from './InteractiveMap';
 
 const AddPoint = () => {
-
+    const navigate = useNavigate();
     const [name, setName] = useState();
     const [descr, setDescr] = useState();
-    const [city, setCity] = useState();
+    const [city, setCity] = useState('Tomsk');
     const [userId, setUserId] = useState();
+    const [pointCoords, setPointCoords] = useState(['Click on the map!']);
+
+    const getPointCoords = (coords) => {
+		setPointCoords(coords);
+	}
 
     useEffect(() => {
         fetchInfo()
@@ -45,6 +50,8 @@ const AddPoint = () => {
                 userId: userId,
                 eventTime: D_now,
                 timeDuration: D_then,
+                latitude: pointCoords[0],
+                longitude: pointCoords[1],
             },
             {headers: {
                     Authorization: `Token ${localStorage.getItem('authToken')}`
@@ -69,6 +76,7 @@ const AddPoint = () => {
             date_start,
             date_end
         });
+        navigate('/map_of_points')
     }
 
     return (
@@ -85,9 +93,12 @@ const AddPoint = () => {
                         <input type="description" onChange={e => setDescr(e.target.value)} />
                     </label>
                     <label>
-                        <p>City</p>
-                        <input type="city" onChange={e => setCity(e.target.value)} />
+                        <p>Latitude and longitude</p>
                     </label>
+                    <label>
+                    {pointCoords}
+                    </label>
+                    <InteractiveMap getPointCoords={getPointCoords}></InteractiveMap>
                     <div>
                         <button type="submit">Submit</button>
                     </div>

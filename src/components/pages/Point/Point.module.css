@@ -85,3 +85,11 @@
 
     color: #000000;
 }
+
+.content_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }

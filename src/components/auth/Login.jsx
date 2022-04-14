@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import s from './Login.module.css'
 import PropTypes from 'prop-types';
 import Registration from './Registration'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 
 const Login = ({ setToken, setUnreg }) => {
@@ -35,7 +35,9 @@ const Login = ({ setToken, setUnreg }) => {
         });
         setToken(token.auth_token);
         console.log(token.auth_token);
-        localStorage.setItem('authToken', token.auth_token)
+        localStorage.setItem('authToken', token.auth_token);
+        navigate('/');
+        window.location.reload();
     }
     const handleClick = () => {
         setUnreg(true);

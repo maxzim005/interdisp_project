@@ -6,3 +6,22 @@
 .container {
     padding-top: 150px;
 }
+
+.btn {
+    width: 115px;
+    height: 55px;
+    font-size: 15px;
+    
+  }
+
+  .content_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .text {
+      text-align: center;
+  }

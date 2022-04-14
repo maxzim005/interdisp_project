@@ -35,7 +35,8 @@ const Registration = ({setUnreg}) => {
             password,
             login,
         });
-
+        navigate('/login');
+        window.location.reload();
     }
 
     const handleClick = () => {
