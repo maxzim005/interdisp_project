@@ -102,6 +102,7 @@ const Profile = ({ getPointId }) => {
                 }
             );
             localStorage.clear();
+            window.location.reload();
         } catch (error) {
             if (error.response) {
                 console.log(error.response)
