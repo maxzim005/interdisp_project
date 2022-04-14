@@ -78,25 +78,52 @@ const ListOfPoints = ({ getPointId, currentCategory }) => {
         <div className={s.wrapper}>
             <div className={s.container}>
 
-                <TextField id="outlined-basic" value={value} label="Search" variant="standard" onChange={e =>
-                    setValue(e.target.value)} />
-                <button onClick={handleSearch} >Search</button>
+                
 
-                <div className={s.current_city}>Current city: Tomsk</div>
+
+                <div className={s.top_container}>
+                    <div className={s.current_wrapper}>
+                        <div className={s.current_city}>Current city: Tomsk</div>
+                        <div className={s.current_category}>Current category: Pryatki</div>
+                        <div className={s.sort_by}>Sort by: </div>
+                    </div>
+
+                    <div className={s.switch_wrapper}>
+                        <Switch
+                            checked={checked}
+                            onChange={handleChange}
+                            inputProps={{ 'aria-label': 'controlled' }}
+                            color="warning"
+                        />
+                        <div className={s.text}>
+                            Switch to the map
+                        </div>
+                    </div>
+                </div>
+
+                <div className={s.search_container}>
+                    <div>
+                        <TextField id="outlined-basic" value={value} label="Search" variant="standard" onChange={e =>
+                            setValue(e.target.value)} />
+                    </div>
+                    
+                    <button onClick={handleSearch} >Search</button>
+                </div>
+
+                {/* <div className={s.current_city}>Current city: Tomsk</div>
                 <Switch
                     checked={checked}
                     onChange={handleChange}
                     inputProps={{ 'aria-label': 'controlled' }}
-                />
-                <button className={s.btn} onClick={handleClick}>Add your point!</button>
-                <div className={s.current_category}>Current category</div>
-                <div className={s.sort_by}>sort by: </div>
-                <div>LIST OF POINTS</div>
+                /> */}
+                
+                
                 <div className={s.content_wrapper}>
                     {
                         points.map(point => <PointElement getPointId={getPointId} point={point} />)
                     }
                 </div>
+                <button className={s.btn} onClick={handleClick}>Add your point!</button>
             </div>
         </div>
     );

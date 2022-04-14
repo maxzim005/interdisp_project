@@ -1,0 +1,44 @@
+.wrap {
+    margin-bottom: 20px;
+}
+
+
+.circle {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+.comment {
+    display: flex;
+}
+
+.user {
+    margin-right: 15px;
+}
+.user img{
+    border-radius: 50%;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.username {
+    margin-left: 2px;
+    color: #0000ffb5;
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.text {
+    width: 100%;
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+
+}
+

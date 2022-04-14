@@ -5,6 +5,7 @@ import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import Switch from '@mui/material/Switch';
 import axios from 'axios';
 import PlacemarkView from './PlacemarkView';
+import Comments from '../../UI/Comments/Comments';
 
 
 const MapOfPoints = ({getPointId, currentCategory}) => {
@@ -54,7 +55,7 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
                     <div className={s.current_category}>Current category: Pryatki</div>
                 </div>
 
-                <div className={s.switch_wrapper}>              
+                <div className={s.switch_wrapper}>
                     <Switch
                         checked={checked}
                         onChange={handleChange}
@@ -62,27 +63,43 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
                         color="warning"
                     />
                     <div className={s.text}>
-                        Switch to the map
+                        Switch to the list
                     </div>
                 </div>
             </div>
 
 
-            
-            
-            <div className={s.chosen_point}>Point</div>
-            <div className={s.comments}>Comments:</div>
-            <div className={s.comments_section}>Comments section</div>
-            <div className={s.map}>
-                <YMaps>
-                    <Map defaultState={{ center: [56.474192, 84.970737], zoom: 13 }} width='1000px' height='500px'>
-                        {points.map(point =>
-                        <PlacemarkView getPointId={getPointId} point={point}/>)}
-                        {/* <Placemark key={point.pointId} onClick={handleClick} defaultGeometry={[point.latitude, point.longitude]} options ={{iconColor: 'red'}}/>)} */}
-                    </Map>
-                </YMaps>
+
+            <div className={s.main_section}>
+                <div className={s.left_side}>
+                    <div className={s.chosen_point}>Point</div>
+                    <div className={s.comments}>Comments:</div>
+                    <div className={s.comments_section}>
+                        <div className={s.comments_wrap}>
+                            <Comments />
+                            <Comments />
+                            <Comments />
+                        </div>
+
+
+                        <div className={s.my_comment}>                          
+                                <textarea className={s.my_comment_text} name="" id="" ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={s.map}>
+                    <YMaps>
+                        <Map defaultState={{ center: [56.474192, 84.970737], zoom: 13 }} width='1000px' height='600px'>
+                            {points.map(point =>
+                                <PlacemarkView getPointId={getPointId} point={point} />)}
+                            {/* <Placemark key={point.pointId} onClick={handleClick} defaultGeometry={[point.latitude, point.longitude]} options ={{iconColor: 'red'}}/>)} */}
+                        </Map>
+                    </YMaps>
+                </div>
             </div>
-            
+
+
             <button className={s.btn} onClick={handleClick}>Add your point!</button>
         </div>
     );
