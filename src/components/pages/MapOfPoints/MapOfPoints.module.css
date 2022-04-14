@@ -1,8 +1,21 @@
 .wrapper {
     background: linear-gradient(35.83deg, rgba(124, 250, 228, 0.9) 0%, rgba(251, 226, 98, 0.9) 89.84%);
     min-height: 100vh;
+    padding-top: 130px;
 }
 
+
+.top_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.switch_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .switch {
     position: relative;
     display: inline-block;

@@ -14,7 +14,9 @@ const PointElement = ({point, getPointId}) => {
     }
     return (
         <div className={s.element}>
-            <img className={s.org_icon} src="https://свободное-время.онлайн/storage/app/organizer/ZNPsWdmCp4tzApsa6sHFwJpH9EoyAHek9QXu7JMQ.jpeg" alt="" />
+            <div className={s.img_wrap}>
+                <img className={s.org_icon} src="https://свободное-время.онлайн/storage/app/organizer/ZNPsWdmCp4tzApsa6sHFwJpH9EoyAHek9QXu7JMQ.jpeg" alt="" />
+            </div>
             <div className={s.elem_text}onClick={handleClick}>{point.name}</div>
         </div>
     );
