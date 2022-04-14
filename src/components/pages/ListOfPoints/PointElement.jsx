@@ -27,16 +27,11 @@ const PointElement = ({ point, getPointId }) => {
         navigate(`/point/`);
     }
     return (
-        <div className={s.element}>
-<<<<<<< Updated upstream
+        <div className={s.element}> 
             <div className={s.img_wrap}>
-                <img className={s.org_icon} src="https://свободное-время.онлайн/storage/app/organizer/ZNPsWdmCp4tzApsa6sHFwJpH9EoyAHek9QXu7JMQ.jpeg" alt="" />
+                <img className={s.org_icon} src={photoUrl} alt="" />
             </div>
-            <div className={s.elem_text}onClick={handleClick}>{point.name}</div>
-=======
-            <img className={s.org_icon} src={photoUrl} alt="" />
             <div className={s.elem_text} onClick={handleClick}>{point.name}</div>
->>>>>>> Stashed changes
         </div>
     );
 };

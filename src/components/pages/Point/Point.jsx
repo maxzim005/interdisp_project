@@ -3,9 +3,30 @@ import React, { useEffect, useState } from 'react';
 import Comments from './Comments/Comments';
 import s from './Point.module.css'
 
-const Point = ({pointId}) => {
+const Point = ({ pointId }) => {
     const [pointData, setPointData] = useState();
     const [username, setUsername] = useState();
+    const [commentValue, setCommentValue] = useState('');
+    const [comments, setComments] = useState([]);
+
+    const [userId, setUserId] = useState();
+    useEffect(() => {
+        fetchInfo()
+    }, [])
+    async function fetchInfo() {
+        try {
+            const response = await axios.get("https://wasite.herokuapp.com/api/auth/users/me/", {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem('authToken')}`
+                }
+            });
+            setUserId(response.data.userId);
+        } catch (error) {
+            if (error.response) {
+                console.log(error.response)
+            }
+        }
+    }
 
     useEffect(() => {
         fetchPoint()
@@ -24,6 +45,7 @@ const Point = ({pointId}) => {
             });
             console.log(response.data);
             setPointData(response.data);
+            setComments(response.data.point_messages);
         } catch (error) {
             if (error.response) {
                 console.log(error.response)
@@ -38,7 +60,6 @@ const Point = ({pointId}) => {
                     Authorization: `Token ${localStorage.getItem('authToken')}`
                 }
             });
-            console.log(response.data.login);
             setUsername(response.data.login);
         } catch (error) {
             if (error.response) {
@@ -47,6 +68,42 @@ const Point = ({pointId}) => {
         }
     }
 
+    async function sendComment() {
+        try {
+            const response = await axios.post("https://wasite.herokuapp.com/api/pointmessages/", {
+                userId: userId,
+                pointId: pointId,
+                pointMessageContent: commentValue,
+            },
+                {
+                    headers: {
+                        Authorization: `Token ${localStorage.getItem('authToken')}`
+                    },
+                }
+            );
+            if (commentValue) {
+                setCommentValue('');
+            }
+        } catch (error) {
+            if (error.response) {
+                console.log(error.response)
+            }
+        }
+    }
+
+    const handleValue = (e) => {
+        setCommentValue(e.target.value);
+    };
+
+    const handleComment = async e => {
+        const token = await sendComment({
+            userId,
+            pointId,
+            commentValue,
+        });
+        setCommentValue('');
+        fetchPoint();
+    }
 
     return (
         <div className={s.wrapper}>
@@ -76,16 +133,16 @@ const Point = ({pointId}) => {
                         </div>
                     </div>
                 </div> */}
-                <Comments />
-                <Comments />
-                <Comments />
-
+          
+                {
+                    comments.map(comment => <Comments userId={userId} comment={comment} />)
+                }
                 <div className={s.my_comment}>
                     <div className={s.wrap}>
                         Ваш комментарий:
-                        <textarea className={s.my_comment_text} name="" id="" cols="30" rows="10"></textarea>
+                        <textarea className={s.my_comment_text} onChange={handleValue} value={commentValue} name="" id="" cols="30" rows="10"></textarea>
                     </div>
-                    <button className={s.btn}>Отправить</button>
+                    <button className={s.btn} onClick={handleComment} >Отправить</button>
                 </div>
 
 
