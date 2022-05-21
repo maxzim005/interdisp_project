@@ -51,8 +51,8 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
         <div className={s.wrapper}>
             <div className={s.top_container}>
                 <div className={s.current_wrapper}>
-                    <div className={s.current_city}>Current city: Tomsk</div>
-                    <div className={s.current_category}>Current category: Pryatki</div>
+                    <div className={s.current_city}>Текущий город: Томск</div>
+                    <div className={s.current_category}>Текущая категория: Прятки</div>
                 </div>
 
                 <div className={s.switch_wrapper}>
@@ -63,17 +63,18 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
                         color="warning"
                     />
                     <div className={s.text}>
-                        Switch to the list
+                        Переключиться на список
                     </div>
                 </div>
             </div>
 
 
-
+            <div className={s.chosen_point}>Интерактивная карта</div>
             <div className={s.main_section}>
-                <div className={s.left_side}>
-                    <div className={s.chosen_point}>Point</div>
-                    <div className={s.comments}>Comments:</div>
+            
+                {/* <div className={s.left_side}>
+                    <div className={s.chosen_point}>Мероприятие</div>
+                    <div className={s.comments}>Комментарии:</div>
                     <div className={s.comments_section}>
                         <div className={s.comments_wrap}>
                             <Comments />
@@ -86,11 +87,11 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
                                 <textarea className={s.my_comment_text} name="" id="" ></textarea>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className={s.map}>
                     <YMaps>
-                        <Map defaultState={{ center: [56.474192, 84.970737], zoom: 13 }} width='1000px' height='600px'>
+                        <Map defaultState={{ center: [56.474192, 84.970737], zoom: 13 }} width='1100px' height='430px'>
                             {points.map(point =>
                                 <PlacemarkView getPointId={getPointId} point={point} />)}
                             {/* <Placemark key={point.pointId} onClick={handleClick} defaultGeometry={[point.latitude, point.longitude]} options ={{iconColor: 'red'}}/>)} */}
@@ -100,7 +101,7 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
             </div>
 
 
-            <button className={s.btn} onClick={handleClick}>Add your point!</button>
+            <button className={s.btn} onClick={handleClick}>Добавить</button>
         </div>
     );
 };

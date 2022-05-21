@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import s from './AddPoint.module.css';
 import axios from 'axios';
 import InteractiveMap from './InteractiveMap';
+import { Placemark } from 'react-yandex-maps';
 
 const AddPoint = () => {
     const navigate = useNavigate();
@@ -11,11 +12,12 @@ const AddPoint = () => {
     const [descr, setDescr] = useState();
     const [city, setCity] = useState('Tomsk');
     const [userId, setUserId] = useState();
-    const [pointCoords, setPointCoords] = useState(['Click on the map!']);
+    const [pointCoords, setPointCoords] = useState(['Нажмите на карту!']);
 
     const getPointCoords = (coords) => {
-		setPointCoords(coords);
-	}
+        setPointCoords(coords);
+        console.log(coords);
+    }
 
     useEffect(() => {
         fetchInfo()
@@ -53,9 +55,11 @@ const AddPoint = () => {
                 latitude: pointCoords[0],
                 longitude: pointCoords[1],
             },
-            {headers: {
-                    Authorization: `Token ${localStorage.getItem('authToken')}`
-                },}
+                {
+                    headers: {
+                        Authorization: `Token ${localStorage.getItem('authToken')}`
+                    },
+                }
             );
         } catch (error) {
             if (error.response) {
@@ -81,26 +85,35 @@ const AddPoint = () => {
 
     return (
         <div className={s.wrapper}>
-            <div className={s.text}>Add point</div>
+            <div className={s.text}>Добавить мероприятие</div>
             <div className={s.login_wrapper}>
                 <form onSubmit={handleSubmit} className={s.form_style}>
                     <label>
-                        <p>Point name</p>
-                        <input type="name" onChange={e => setName(e.target.value)} />
+                        <p className={s.name_input_text}>Название мероприятия</p>
+                        <input className={s.name_input} type="name" onChange={e => setName(e.target.value)} />
+                    </label>
+
+                    <label>
+                        <p className={s.descr_input_text}>Описание</p>
+                        <textarea className={s.descr_input} type="description" onChange={e => setDescr(e.target.value)} />
+                    </label>
+
+                    <label>
+                        <p className={s.photo_input_text}>Добавить фото</p>
+                        <input className={s.photo_input} type="file" onChange={e => setDescr(e.target.value)} />
+                    </label> 
+
+                    {/* <label>
+                        <p className={s.coords_text}>Координаты мероприятия:</p>
                     </label>
                     <label>
-                        <p>Description</p>
-                        <input type="description" onChange={e => setDescr(e.target.value)} />
-                    </label>
-                    <label>
-                        <p>Latitude and longitude</p>
-                    </label>
-                    <label>
-                    {pointCoords}
-                    </label>
-                    <InteractiveMap getPointCoords={getPointCoords}></InteractiveMap>
+                        {pointCoords}
+                    </label> */}
+                    <InteractiveMap getPointCoords={getPointCoords}>
+                        {/* <PlacemarkView getPointId={getPointId} point={point} /> */}
+                    </InteractiveMap>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button className={s.send_btn} type="submit">Отправить</button>
                     </div>
                 </form>
             </div>

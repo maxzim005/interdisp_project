@@ -46,28 +46,31 @@ const Registration = ({setUnreg}) => {
 
     return (
         <div className={s.wrapper}>
-            <div className={s.text}>Registration</div>
+            <div className={s.text}>Регистрация</div>
             <div>
                 <form onSubmit={handleSubmit} className={s.form_style}>
                     <label>
-                        <p>Email</p>
-                        <input type="text" onChange={e => setEmail(e.target.value)}/>
+                        <p className={s.email_text}>Email</p>
+                        <input className={s.email} type="text" onChange={e => setEmail(e.target.value)}/>
                     </label>
                     <label>
-                        <p>Login</p>
-                        <input type="text" onChange={e => setLogin(e.target.value)}/>
+                        <p className={s.login_text}>Логин</p>
+                        <input className={s.login} type="text" onChange={e => setLogin(e.target.value)}/>
                     </label>
                     <label>
-                        <p>Password</p>
-                        <input type="password" onChange={e => setPassword(e.target.value)}/>
+                        <p className={s.password_text}>Пароль</p>
+                        <input className={s.password} type="password" onChange={e => setPassword(e.target.value)}/>
                     </label>
-                    
+                    <label>
+                        <p className={s.password_ac_text}>Подтвердите пароль</p>
+                        <input className={s.password_ac}/>
+                    </label>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button className={s.send_btn} type="submit">Отправить</button>
                     </div>
                 </form>
-                <div className={s.text_reg}>Already have an account?</div>
-                <button className={s.redirect_to_log} onClick={handleClick}>Click here</button>
+                <div className={s.text_reg}>Уже есть аккаунт?</div>
+                <button className={s.redirect_to_log} onClick={handleClick}>Нажмите сюда!</button>
             </div>
         </div>
     );

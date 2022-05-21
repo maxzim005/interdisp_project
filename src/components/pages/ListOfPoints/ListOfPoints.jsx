@@ -83,9 +83,9 @@ const ListOfPoints = ({ getPointId, currentCategory }) => {
 
                 <div className={s.top_container}>
                     <div className={s.current_wrapper}>
-                        <div className={s.current_city}>Current city: Tomsk</div>
-                        <div className={s.current_category}>Current category: Pryatki</div>
-                        <div className={s.sort_by}>Sort by: </div>
+                        <div className={s.current_city}>Текущий город: Томск</div>
+                        <div className={s.current_category}>Текущая категория: Прятки</div>
+                        <div className={s.sort_by}>Сортировать по: Названию</div>
                     </div>
 
                     <div className={s.switch_wrapper}>
@@ -96,18 +96,18 @@ const ListOfPoints = ({ getPointId, currentCategory }) => {
                             color="warning"
                         />
                         <div className={s.text}>
-                            Switch to the map
+                            Переключиться на карту
                         </div>
                     </div>
                 </div>
 
                 <div className={s.search_container}>
                     <div>
-                        <TextField id="outlined-basic" value={value} label="Search" variant="standard" onChange={e =>
+                        <TextField id="outlined-basic" value={value} label="Поиск" variant="standard" onChange={e =>
                             setValue(e.target.value)} />
                     </div>
                     
-                    <button onClick={handleSearch} >Search</button>
+                    <button onClick={handleSearch} >Поиск</button>
                 </div>
 
                 {/* <div className={s.current_city}>Current city: Tomsk</div>
@@ -123,7 +123,7 @@ const ListOfPoints = ({ getPointId, currentCategory }) => {
                         points.map(point => <PointElement getPointId={getPointId} point={point} />)
                     }
                 </div>
-                <button className={s.btn} onClick={handleClick}>Add your point!</button>
+                <button className={s.btn} onClick={handleClick}>Добавить</button>
             </div>
         </div>
     );

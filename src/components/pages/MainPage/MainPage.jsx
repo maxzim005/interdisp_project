@@ -11,11 +11,11 @@ const MainPage = () => {
         <div className={s.wrapper}>
             <img className={s.fig_1} src={Fig_1} alt="" />
             <img className={s.fig_2} src={Fig_1_1} alt="" />
-            <h1>Welcome to Whats Around</h1>
+            <h1>Добро пожаловать в Whats Around</h1>
             <h3>Whats Around - это сервис, позволяющий находить 
 интересное рядом. Присоединяйтесь к нам прямо сейчас!
             </h3>
-              <NavLink className={s.link} to='/choose_category'> <button className={s.btn}>JOIN</button> </NavLink> 
+              <NavLink className={s.link} to='/choose_category'> <button className={s.btn}>Начать</button> </NavLink> 
             <img className={s.waves} src={Waves} alt="" />
         </div>
     );

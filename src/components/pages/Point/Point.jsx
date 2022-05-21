@@ -139,7 +139,7 @@ const Point = ({ pointId }) => {
                 }
                 <div className={s.my_comment}>
                     <div className={s.wrap}>
-                        Ваш комментарий:
+                        <p className={s.comment_yours}>Ваш комментарий:</p>
                         <textarea className={s.my_comment_text} onChange={handleValue} value={commentValue} name="" id="" cols="30" rows="10"></textarea>
                     </div>
                     <button className={s.btn} onClick={handleComment} >Отправить</button>

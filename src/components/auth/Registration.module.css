@@ -17,8 +17,8 @@
 }
 .text_reg{
     text-align: center;
-    font-size: 30px;
-    margin-top: 30px;
+    font-size: 20px;
+    margin-top: 50px;
 }
 .form_style {
     display: flex;
@@ -41,7 +41,62 @@
 }
 
 .redirect_to_log {
-    width: 100px;
+    width: 150px;
     height: 50px;
     font-size: 18px;
+    margin-top: 10px;
+}
+
+.send_btn{
+    width: 185px;
+    height: 60px;
+    font-size: 24px;
+}
+
+.email{
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.email_text{
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login{
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.login_text{
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+.password{
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.password_text{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+
+.password_ac{
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.password_ac_text{
+    font-weight: 700;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
 }

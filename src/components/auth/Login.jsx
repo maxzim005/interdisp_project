@@ -46,23 +46,23 @@ const Login = ({ setToken, setUnreg }) => {
 
     return (
         <div className={s.wrapper}>
-            <div className={s.text}>Login</div>
+            <div className={s.text}>Авторизация</div>
             <div className={s.login_wrapper}>
                 <form onSubmit={handleSubmit} className={s.form_style}>
                     <label>
-                        <p>Username</p>
-                        <input type="text" onChange={e => setLogin(e.target.value)} />
+                        <p className={s.login_text}>Логин</p>
+                        <input className={s.login} type="text" onChange={e => setLogin(e.target.value)} />
                     </label>
                     <label>
-                        <p>Password</p>
-                        <input type="password" onChange={e => setPassword(e.target.value)} />
+                        <p className={s.password_text}>Пароль</p>
+                        <input className={s.password} type="password" onChange={e => setPassword(e.target.value)} />
                     </label>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button className={s.send_btn} type="submit">Отправить</button>
                     </div>
                 </form>
-                <div className={s.text_reg}>Don't have an account?</div>
-                <button className={s.redirect_to_reg} onClick={handleClick}>Click here</button>  
+                <div className={s.text_reg}>Еще не зарегистрированы?</div>
+                <button className={s.redirect_to_reg} onClick={handleClick}>Нажмите сюда!</button>  
             </div>
         </div>
     );

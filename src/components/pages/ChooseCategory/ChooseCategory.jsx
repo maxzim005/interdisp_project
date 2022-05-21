@@ -51,14 +51,14 @@ const ChooseCategory = ({getCurrentCategory}) => {
 
     return (
         <div className={s.wrapper}>
-            <h2>First of all...</h2>
+            <h2>Давайте начнем?</h2>
             <div className='container'>
                 <div className='row'>
                     <div className={s.city_wrapper + ' col'}>
                         <div className={s.choose_city}>Пожалуйста, выберите интересующий Вас город</div>
                         <Box sx={{ maxWidth: 600 }}>
                             <FormControl fullWidth>
-                                <InputLabel id="demo-simple-select-label">City</InputLabel>
+                                <InputLabel id="demo-simple-select-label">Город</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
@@ -67,10 +67,10 @@ const ChooseCategory = ({getCurrentCategory}) => {
                                     onChange={handleChangeCity}
                                 >
                                     
-                                    <MenuItem value={1}>Tomsk</MenuItem>
-                                    <MenuItem value={2}>Moscow</MenuItem>
-                                    <MenuItem value={3}>Saints-Petersburg</MenuItem>
-                                    <MenuItem value={4}>Novosibirsk</MenuItem>
+                                    <MenuItem value={1}>Томск</MenuItem>
+                                    <MenuItem value={2}>Москва</MenuItem>
+                                    <MenuItem value={3}>Санкт-Петербург</MenuItem>
+                                    <MenuItem value={4}>Новосибирск</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
@@ -79,7 +79,7 @@ const ChooseCategory = ({getCurrentCategory}) => {
                         <div className={s.choose_category}>Пожалуйста, выберите интересующий Вас тип досуга</div>
                         <Box sx={{ maxWidth: 600 }}>
                             <FormControl fullWidth>
-                                <InputLabel id="demo-simple-select-label">Leisure</InputLabel>
+                                <InputLabel id="demo-simple-select-label">Тип</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
@@ -99,7 +99,7 @@ const ChooseCategory = ({getCurrentCategory}) => {
                         </Box>
                     </div>
                 </div>
-                {isChecked ? <button><NavLink className={s.link} to='/list_of_points'>Continue</NavLink></button> : ``}
+                {isChecked ? <button><NavLink className={s.link} to='/list_of_points'>Продолжить</NavLink></button> : ``}
             </div>
         </div>
     );
