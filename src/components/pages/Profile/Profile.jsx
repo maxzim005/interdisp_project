@@ -116,10 +116,7 @@ const Profile = ({ getPointId }) => {
                 <h4>{username}</h4>
                 <img className={s.user_icon} src="https://www.meme-arsenal.com/memes/b877babd9c07f94b952c7f152c4e264e.jpg" alt="" />
             </div>
-            
-            <div className={s.current_city}>
-                <h5>Текущий город: {(userCity) ? userCity : 'Томск'}</h5> 
-            </div>
+
             <div className={s.rating_wrapper}>
                 <div>
                     <Typography component="legend"><h5>Текущий рейтинг:</h5></Typography>

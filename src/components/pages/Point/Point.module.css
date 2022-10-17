@@ -19,7 +19,8 @@
     margin-top: 75px;
 }
 .info img{
-    width: 340px;
+    width: 300px;
+    height: 300px;
     border-radius: 30px;
     margin-left: 12%;
 }
@@ -45,6 +46,7 @@
 }
 .org h4 {
     text-align: center;
+    
 }
 
 .wrap {

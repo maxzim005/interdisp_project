@@ -12,7 +12,7 @@ const Login = ({ setToken, setUnreg }) => {
     const [username, setUsername] = useState();
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
-
+    const [failedAuth, setFailedAuth] = useState(false);
     useEffect(() => {
     }, [loginUser])
 
@@ -35,9 +35,18 @@ const Login = ({ setToken, setUnreg }) => {
         });
         setToken(token.auth_token);
         console.log(token.auth_token);
-        localStorage.setItem('authToken', token.auth_token);
-        navigate('/');
-        window.location.reload();
+        if (token.auth_token) {
+            localStorage.setItem('authToken', token.auth_token);
+            navigate('/');
+            window.location.reload();
+            setFailedAuth(false);
+        }
+        else {
+            setFailedAuth(true);
+        }
+        // localStorage.setItem('authToken', token.auth_token);
+        // navigate('/');
+        // window.location.reload();
     }
     const handleClick = () => {
         setUnreg(true);
@@ -61,6 +70,7 @@ const Login = ({ setToken, setUnreg }) => {
                         <button className={s.send_btn} type="submit">Отправить</button>
                     </div>
                 </form>
+                <div className={s.text_failure}>{failedAuth ? <div>Упс! Что-то пошло не так.</div> : ''}</div>
                 <div className={s.text_reg}>Еще не зарегистрированы?</div>
                 <button className={s.redirect_to_reg} onClick={handleClick}>Нажмите сюда!</button>  
             </div>

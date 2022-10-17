@@ -1,15 +1,20 @@
+//  Imports ...
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Comments from './Comments/Comments';
 import s from './Point.module.css'
+//  ... Imports
 
 const Point = ({ pointId }) => {
+    //  Hooks ...
     const [pointData, setPointData] = useState();
     const [username, setUsername] = useState();
     const [commentValue, setCommentValue] = useState('');
     const [comments, setComments] = useState([]);
-
     const [userId, setUserId] = useState();
+    //  ... Hooks
+
+    //  Fetch data ...
     useEffect(() => {
         fetchInfo()
     }, [])
@@ -27,7 +32,6 @@ const Point = ({ pointId }) => {
             }
         }
     }
-
     useEffect(() => {
         fetchPoint()
     }, [])
@@ -35,7 +39,6 @@ const Point = ({ pointId }) => {
     useEffect(() => {
         getUsername()
     }, [fetchPoint])
-
     async function fetchPoint() {
         try {
             const response = await axios.get(`https://wasite.herokuapp.com/api/points/${pointId}`, {
@@ -52,7 +55,6 @@ const Point = ({ pointId }) => {
             }
         }
     }
-
     async function getUsername() {
         try {
             const response = await axios.get(`https://wasite.herokuapp.com/api/users/${pointData.userId}/`, {
@@ -67,7 +69,6 @@ const Point = ({ pointId }) => {
             }
         }
     }
-
     async function sendComment() {
         try {
             const response = await axios.post("https://wasite.herokuapp.com/api/pointmessages/", {
@@ -90,7 +91,9 @@ const Point = ({ pointId }) => {
             }
         }
     }
+    //  ... Fetch data
 
+    //  Handlers ...
     const handleValue = (e) => {
         setCommentValue(e.target.value);
     };
@@ -104,13 +107,14 @@ const Point = ({ pointId }) => {
         setCommentValue('');
         fetchPoint();
     }
+    // ... Handlers
 
+    //  JSX ...
     return (
         <div className={s.wrapper}>
             <h1>{pointData ? pointData.name : 'DEFAULT'}</h1>
             <div className={s.info}>
-                <img src="http://sun9-77.userapi.com/sun9-48/impf/SL0wfexmbM-OveJrpFP1bZhkm_GtRC06CndxuA/hpiYRBExlUM.jpg?size=1590x400&quality=95&crop=0,0,1500,377&sign=a3480d280467883c4a9a84746bebd733&type=cover_group
-                " alt="" />
+                <img src="https://sun9-7.userapi.com/s/v1/ig2/VdiFXXj0Ial8OQb-fJU80czOcTunr8Rh56NExJUYxktR_uYXGD6VR6qaXTnjKghml50JINjid-1qDBfqiNcM-pfQ.jpg?size=1500x1500&quality=96&type=album" alt="" />
                 <h4>{pointData ? pointData.description : 'DEFAULT'}</h4>
             </div>
             <div className={s.org}>
@@ -118,22 +122,6 @@ const Point = ({ pointId }) => {
 
                 <img className={s.org_icon} src="https://свободное-время.онлайн/storage/app/organizer/ZNPsWdmCp4tzApsa6sHFwJpH9EoyAHek9QXu7JMQ.jpeg" alt="" />
                 <h4>{username ? username : 'DEFAULT'}</h4>
-
-                {/* <div className={s.wrap}>
-                    <div className={s.comment}>
-                        <div className={s.user}>
-                            <div className={s.circle}>
-                                <img src="https://obzor.city/data/images/news_2016/01/ve4erinki/57.jpg" alt="" />
-                            </div>
-                            <div>Участник 1</div>
-                        </div>
-                        <div className={s.text}>
-                            sample text lorem ipsum sample text lorem ipsum sample text lorem ipsum sample text lorem ipsum sample
-
-                        </div>
-                    </div>
-                </div> */}
-          
                 {
                     comments.map(comment => <Comments userId={userId} comment={comment} />)
                 }
@@ -144,15 +132,9 @@ const Point = ({ pointId }) => {
                     </div>
                     <button className={s.btn} onClick={handleComment} >Отправить</button>
                 </div>
-
-
             </div>
-
-
         </div>
-
-
     );
 };
-
+// ... JSX
 export default Point;

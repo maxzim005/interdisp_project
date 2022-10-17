@@ -63,7 +63,7 @@ const Registration = ({setUnreg}) => {
                     </label>
                     <label>
                         <p className={s.password_ac_text}>Подтвердите пароль</p>
-                        <input className={s.password_ac}/>
+                        <input className={s.password_ac} type="password" />
                     </label>
                     <div>
                         <button className={s.send_btn} type="submit">Отправить</button>

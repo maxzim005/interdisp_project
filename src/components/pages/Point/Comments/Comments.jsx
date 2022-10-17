@@ -31,9 +31,9 @@ const Comments = ({userId, comment}) => {
             <div className={s.comment}>
                 <div className={s.user}>
                     <div className={s.circle}>
-                        <img src="https://obzor.city/data/images/news_2016/01/ve4erinki/57.jpg" alt="" />
+                        <img src="https://свободное-время.онлайн/storage/app/organizer/ZNPsWdmCp4tzApsa6sHFwJpH9EoyAHek9QXu7JMQ.jpeg" alt="" />
                     </div>
-                    <div>{username}</div>
+                    <div className={s.username_text}>{username}</div>
                 </div>
                 <div className={s.text}>
                    {comment.pointMessageContent}

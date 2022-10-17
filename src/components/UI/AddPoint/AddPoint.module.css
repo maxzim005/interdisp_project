@@ -91,3 +91,17 @@
 .send_btn {
     margin-bottom: 35px;
 }
+
+select{
+    border-radius: 10px;
+    height: 35px;
+    width: 150px;
+    padding: 5px;
+}
+
+.select_text{
+    text-align: center;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

@@ -99,9 +99,20 @@ const AddPoint = () => {
                     </label>
 
                     <label>
+                        <p className={s.select_text}>Выбор категории</p>
+                        <select name="" id="">
+                            <option value="1">Концерт</option>
+                            <option value="2">Зеленый</option>
+                            <option value="3">Желтый</option>
+                            <option value="4">Красный</option>
+                            <option value="5">Оранжевый</option>
+                            <option value="6">Черный</option></select>
+                    </label>
+
+                    <label>
                         <p className={s.photo_input_text}>Добавить фото</p>
                         <input className={s.photo_input} type="file" onChange={e => setDescr(e.target.value)} />
-                    </label> 
+                    </label>
 
                     {/* <label>
                         <p className={s.coords_text}>Координаты мероприятия:</p>

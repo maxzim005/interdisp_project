@@ -47,6 +47,22 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
         navigate('/add_point');
     };
 
+    const randomColor = () => {
+        let num = Math.random();
+        if (num>0.75) {
+            return 'green'
+        }
+        else if (num<0.75 && num>0.5) {
+            return 'red'
+        }
+        else if (num<0.5 && num>0.25) {
+            return 'purple'
+        }
+        else {
+            return 'yellow'
+        }
+    }
+
     return (
         <div className={s.wrapper}>
             <div className={s.top_container}>
@@ -93,8 +109,12 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
                     <YMaps>
                         <Map defaultState={{ center: [56.474192, 84.970737], zoom: 13 }} width='1100px' height='430px'>
                             {points.map(point =>
-                                <PlacemarkView getPointId={getPointId} point={point} />)}
-                            {/* <Placemark key={point.pointId} onClick={handleClick} defaultGeometry={[point.latitude, point.longitude]} options ={{iconColor: 'red'}}/>)} */}
+                            <PlacemarkView getPointId={getPointId} point={point}/>)}
+                            <Placemark defaultGeometry={[56.478751996178545, 84.9980311589355]} options ={{iconColor: 'blue'}}/>
+                            <Placemark defaultGeometry={[56.47428700552399, 84.99837448168945]} options ={{iconColor: 'red'}}/>
+                            <Placemark defaultGeometry={[56.47143673573343, 84.97159530688472]} options ={{iconColor: 'green'}}/>
+                            <Placemark defaultGeometry={[56.47780204233418, 84.97588684130854]} options ={{iconColor: 'purple'}}/>
+                            <Placemark defaultGeometry={[56.46906134675953, 84.97382690478513]} options ={{iconColor: 'orange'}}/>
                         </Map>
                     </YMaps>
                 </div>

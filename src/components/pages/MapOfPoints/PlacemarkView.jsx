@@ -12,7 +12,7 @@ const PlacemarkView = ({point, getPointId}) => {
         getPointId(pointId);
         navigate(`/point/`);
     }
-
+    
     return (
         <div>
             {/* <Placemark defaultGeometry={[56.47780115002089, 84.96191024780273]} options ={{iconColor: 'blue'}}/> */}

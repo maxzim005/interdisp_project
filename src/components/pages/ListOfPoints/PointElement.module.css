@@ -32,6 +32,9 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 230px;
+    text-align: center;
+    font-weight: 900;
   }
   
   .content_wrapper {

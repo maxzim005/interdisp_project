@@ -85,7 +85,7 @@ const ListOfPoints = ({ getPointId, currentCategory }) => {
                     <div className={s.current_wrapper}>
                         <div className={s.current_city}>Текущий город: Томск</div>
                         <div className={s.current_category}>Текущая категория: Прятки</div>
-                        <div className={s.sort_by}>Сортировать по: Названию</div>
+                        <div className={s.sort_by}>Сортировать по: Последние добавленные</div>
                     </div>
 
                     <div className={s.switch_wrapper}>
