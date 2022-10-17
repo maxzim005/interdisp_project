@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# FOR VISITORS / Для смотрящих
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To get access into the app and see all functuins use following login/password: maxzim/maxzim
+You may also register by yourself.
+Для того, чтобы войти на сайт и увидеть весь функционал, используйте следующие логин/пароль: maxzim maxzim
+Вы также можете зарегистрироваться самостоятельно.
 
 ## Available Scripts
 
