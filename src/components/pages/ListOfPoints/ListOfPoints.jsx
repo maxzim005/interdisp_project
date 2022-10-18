@@ -1,41 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import s from './ListOfPoints.module.css'
 import PointElement from './PointElement';
 import Switch from '@mui/material/Switch';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { TextField } from '@mui/material';
+import FetchPlacemarks from '../../../store/FetchPlacemarks';
+import { observer } from 'mobx-react-lite';
 
-const ListOfPoints = ({ getPointId, currentCategory }) => {
+const ListOfPoints = observer(({ getPointId, currentCategory }) => {
 
     const navigate = useNavigate();
     const [checked, setChecked] = useState(false);
     const [points, setPoints] = useState([]);
     const [value, setValue] = useState('');
-
+    
     useEffect(() => {
-        fetchAllPoints()
+        FetchPlacemarks.fetchAllPoints();
     }, [])
 
-
-    async function fetchAllPoints() {
-        try {
-            const response = await axios.get("https://wasite.herokuapp.com/api/points/", {
-                headers: {
-                    Authorization: `Token ${localStorage.getItem('authToken')}`
-                },
-                params: {
-                    tagName: currentCategory.tagName,
-                },
-            });
-            setPoints(response.data);
-            console.log(currentCategory);
-        } catch (error) {
-            if (error.response) {
-                console.log(error.response)
-            }
-        }
-    }
+    useEffect(() => {
+        setPoints(FetchPlacemarks.placemarks);
+    }, [FetchPlacemarks.placemarks])
 
     async function fetchSearch() {
         try {
@@ -117,7 +103,6 @@ const ListOfPoints = ({ getPointId, currentCategory }) => {
                     inputProps={{ 'aria-label': 'controlled' }}
                 /> */}
                 
-                
                 <div className={s.content_wrapper}>
                     {
                         points.map(point => <PointElement getPointId={getPointId} point={point} />)
@@ -127,6 +112,6 @@ const ListOfPoints = ({ getPointId, currentCategory }) => {
             </div>
         </div>
     );
-};
+})
 
 export default ListOfPoints;

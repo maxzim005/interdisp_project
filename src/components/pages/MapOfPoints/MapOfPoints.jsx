@@ -1,42 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import s from './MapOfPoints.module.css'
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import Switch from '@mui/material/Switch';
 import axios from 'axios';
 import PlacemarkView from './PlacemarkView';
-import Comments from '../../UI/Comments/Comments';
+import FetchPlacemarks from '../../../store/FetchPlacemarks';
+import { observer } from 'mobx-react-lite';
 
-
-const MapOfPoints = ({getPointId, currentCategory}) => {
+const MapOfPoints = observer(({getPointId, currentCategory}) => {
     const navigate = useNavigate();
     const [checked, setChecked] = useState(true);
     const [points, setPoints] = useState([]);
 
     useEffect(() => {
-        fetchAllPoints()
+        FetchPlacemarks.fetchAllPoints();
     }, [])
 
-    async function fetchAllPoints() {
-        try {
-            const response = await axios.get("https://wasite.herokuapp.com/api/points/", {
-                headers: {
-                    Authorization: `Token ${localStorage.getItem('authToken')}`
-                },
-                params: {
-                    tagName: currentCategory.tagName,
-                },
-            });
-            console.log(response);
-            console.log(response.data);
-            setPoints(response.data);
-            console.log(points);
-        } catch (error) {
-            if (error.response) {
-                console.log(error.response)
-            }
-        }
-    }
+    useEffect(() => {
+        setPoints(FetchPlacemarks.placemarks);
+    }, [FetchPlacemarks.placemarks])
 
     const handleChange = (e) => {
         setChecked(e.target.checked);
@@ -124,6 +107,6 @@ const MapOfPoints = ({getPointId, currentCategory}) => {
             <button className={s.btn} onClick={handleClick}>Добавить</button>
         </div>
     );
-};
+});
 
 export default MapOfPoints;

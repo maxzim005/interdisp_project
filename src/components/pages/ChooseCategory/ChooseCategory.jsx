@@ -41,7 +41,7 @@ const ChooseCategory = ({getCurrentCategory}) => {
                 }
             });
             setCategories(response.data);
-            console.log(response.data)
+            // console.log(response.data)
         } catch (error) {
             if (error.response) {
                 console.log(error.response)

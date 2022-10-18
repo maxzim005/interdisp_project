@@ -25,8 +25,8 @@ function App() {
 	const getCurrentCategory = (curCat) => {
 		setCurrentCategory(curCat);
 	}
-
-	if (!(localStorage.length > 0) && !unreg) {
+	//IF USER IS NOT AUTHORIZED -> DONT SHOW HIM OTHER PAGES, EXCEPT LOGIN AND REGISTER
+	if (!(localStorage.length > 0) && !unreg) { 
 		return (<div><Navbar /> <Login setToken={setToken} setUnreg={setUnreg} /></div>)
 	}
 	if (!(localStorage.length > 0) && unreg) {
